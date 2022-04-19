@@ -1,7 +1,7 @@
 {
-  "name": "material-dashboard-react",
+  "name": "ufpb-mangabeira-map",
   "version": "1.10.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "description": "Mapa do campus de Mangabeira da UFPB",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
