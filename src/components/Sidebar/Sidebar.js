@@ -12,8 +12,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
 // core components
-import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
-import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
+import "../../assets/css/side-bar.css";
+
 
 import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
 
@@ -84,16 +84,15 @@ export default function Sidebar(props) {
   var brand = (
     <div className={classes.logo}>
       <a
-        href="https://www.creative-tim.com?ref=mdr-sidebar"
-        className={classNames(classes.logoLink, {
-          [classes.logoLinkRTL]: props.rtlActive,
-        })}
-        target="_blank"
+        href="/admin/mapa"
+        className="logoLink"
       >
-        <div className={classes.logoImage}>
-          <img src={logo} alt="logo" className={classes.img} />
-        </div>
-        {logoText}
+        {logo !== null && logo !== undefined ?
+          <div className={classes.logoImage}>
+           <img src={logo} alt="logo" className={classes.img} />
+          </div>  : null
+        }
+        <p className="logoText">{logoText}</p>
       </a>
     </div>
   );
@@ -115,23 +114,17 @@ export default function Sidebar(props) {
           }}
         >
           {brand}
-          <div className={classes.sidebarWrapper}>
-            {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
-            {links}
-          </div>
-          {image !== undefined ? (
-            <div
+          <div
               className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
-            />
-          ) : null}
+              style={{ color: "#FFFFFF"}}
+          />
         </Drawer>
       </Hidden>
-      <Hidden smDown implementation="css">
+      {/* <Hidden smDown implementation="css"> */}
         <Drawer
-          anchor={props.rtlActive ? "right" : "left"}
+          anchor="left"
           variant="permanent"
-          open
+          // open
           classes={{
             paper: classNames(classes.drawerPaper, {
               [classes.drawerPaperRTL]: props.rtlActive,
@@ -140,14 +133,11 @@ export default function Sidebar(props) {
         >
           {brand}
           <div className={classes.sidebarWrapper}>{links}</div>
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: "url(" + image + ")" }}
-            />
-          ) : null}
+          <div
+              className="sidebar"
+          />
         </Drawer>
-      </Hidden>
+      {/* </Hidden> */}
     </div>
   );
 }

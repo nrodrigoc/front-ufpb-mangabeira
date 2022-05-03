@@ -1,0 +1,45 @@
+.sidebar {
+   /* background-color: #01D1FF; */
+   background-color: #01A8CD;
+   border: none;
+   position: absolute;
+   display: block;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+}
+
+.divLogo {
+
+}
+
+.logoLink {
+   
+}
+
+.logoText {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   color: white;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.itemSideBar {
+   width: auto;
+   transition: all 300ms linear;
+   margin: 10px 15px 0;
+   border-radius: 3px;
+   position: relative;
+   display: block;
+   padding: 10px 15px;
+   font-size: 19px;
+   background-color: transparent;
+}
+
+.itemSideBar .active {
+   background-color: #01A8CD;
+}
