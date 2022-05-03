@@ -1,6 +1,52 @@
+
+
+.divMapeamento{
+   display: flex;
+   flex-direction: column;
+   margin: auto;
+}
+
+.divMapa {
+   display: flex;
+   justify-content: center;
+}
+
+.divMapa img{
+   width: 100%;
+}
+
 .divMapsTitle {
    display: flex;
    align-items: center;
    justify-content: center;
    background-color: white;
+}
+
+.divLegendasMapa {
+   display: flex;
+   justify-content: space-between;
+}
+
+.divLegendaSiglas img,
+.divLegendaCores img{
+   width: 60%;
+}
+
+.divLegendaSiglas {
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+}
+
+.divLegendaCores,
+.divLegendaSiglas {
+   display: flex;
+   flex-direction: column;
+}
+
+.divLegendaCores p,
+.divLegendaSiglas p {
+   font-size: 20px;
+   font-weight: bold;
+   width: 60%;
 }

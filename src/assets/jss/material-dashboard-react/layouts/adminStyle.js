@@ -17,6 +17,7 @@ const appStyle = (theme) => ({
     overflow: "auto",
     position: "relative",
     float: "right",
+    backgroundColor: "#FFF",
     ...transition,
     maxHeight: "100%",
     width: "100%",
