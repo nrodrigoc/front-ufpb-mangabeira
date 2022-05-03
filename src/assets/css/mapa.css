@@ -1,5 +1,41 @@
+/* Selecao de Rotas */
+.divSelecaoPontos {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   margin-top: 25px;
+   margin-bottom: 40px;
+}
+
+.divOpcoesPontos {
+   display: flex;
+   flex-direction: row;
+}
+
+.hidden {
+   display: none;
+}
 
 
+.segundaOpcao {
+   margin-left: 30px;
+}
+
+.divBotaoCancelar {
+   display: flex;
+}
+
+.botaoCancelar{
+   position: relative;
+   background-color: inherit;
+   border: none;
+}
+
+.botaoCancelar:active {
+   top: 3px;
+}
+
+/* Mapa */
 .divMapeamento{
    display: flex;
    flex-direction: column;
@@ -50,3 +86,4 @@
    font-weight: bold;
    width: 60%;
 }
+

@@ -19,7 +19,7 @@
 import LocationOn from "@material-ui/icons/LocationOn";
 import ArticleIcon from '@mui/icons-material/Article';
 // core components/views for Admin layout
-import Mapa from "views/Mapa/Mapa.js";
+import Mapa from "views/Mapa/Mapa.jsx";
 import NotificationsPage from "views/Notifications/Notifications.js";
 // core components/views for RTL layout
 
