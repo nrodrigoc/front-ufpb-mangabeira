@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import "../../assets/css/mapa.css";
 
-// Imagens dos Mapeamentos
-import MapeamentoCompleto from "assets/img/rotas/mapeamento-completo.png";
-
 // Imagens das Legendas
 import LegendaCores from "assets/img/rotas/legenda-cores.png";
 import LegendaSiglas from "assets/img/rotas/legenda-siglas.png";
@@ -19,7 +16,7 @@ import Select from "@mui/material/Select";
 import CloseIcon from "assets/icones/close-icon.svg";
 
 function Maps() {
-	const [mapaAtual, setMapaAtual] = React.useState(MapeamentoCompleto);
+	const [mapaAtual, setMapaAtual] = React.useState(require('assets/img/rotas/mapeamento-completo.png').default);
 
 
 	const [primeiroPonto, setPrimeiroPonto] = React.useState("");
@@ -40,6 +37,7 @@ function Maps() {
 		if (value === false) {
 			setPrimeiroPonto("");
 			setSegundoPonto("");
+			setMapaAtual(require('assets/img/rotas/mapeamento-completo.png').default);
 		}
 
 		setPossuiRota(value);
@@ -48,6 +46,7 @@ function Maps() {
 	function handleRotas() {
 		if(primeiroPonto != "" && segundoPonto != "") {
 			handlePossuiRota(true);
+			setMapaAtual(require('assets/img/rotas/'+primeiroPonto+'-'+segundoPonto+'.png').default)
 		}
 	}
 
@@ -73,9 +72,9 @@ function Maps() {
 								label="Ponto 1"
 								onChange={handleChange1}
 							>
-								<MenuItem value={10}>Portão 1</MenuItem>
-								<MenuItem value={20}>Térreo CI</MenuItem>
-								<MenuItem value={30}>Thirty</MenuItem>
+								<MenuItem value={"portao1"}>Portão 1</MenuItem>
+								<MenuItem value={"ci2"}>Térreo CI</MenuItem>
+								<MenuItem value={"ci1"}>Entrada CI</MenuItem>
 							</Select>
 						</FormControl>
 					</Box>
@@ -92,7 +91,7 @@ function Maps() {
 								label="Ponto 2"
 								onChange={handleChange2}
 							>
-								<MenuItem value={10}>Portão 2</MenuItem>
+								<MenuItem value={"portao2"}>Portão 2</MenuItem>
 								<MenuItem value={20}>Térreo CI</MenuItem>
 								<MenuItem value={30}>Thirty</MenuItem>
 							</Select>
