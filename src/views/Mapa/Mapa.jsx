@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/css/mapa.css";
 
 // Imagens das Legendas
@@ -15,20 +15,69 @@ import Select from "@mui/material/Select";
 // Icons
 import CloseIcon from "assets/icones/close-icon.svg";
 
+const pontos = [
+	{
+		id: "ci1",
+		nome: "Entrada CI"
+	},
+	{
+		id: "ci2",
+		nome: "Térreo CI"
+	},
+	{
+		id: "portao1",
+		nome: "Portão 1"
+	},
+	{
+		id: "portao2",
+		nome: "Portão 2"
+	},
+	{
+		id: "liepe",
+		nome: "Liepe"
+	},
+	{
+		id: "ctdr1",
+		nome: "Entrada 1 CTDR"
+	},
+	{
+		id: "ctdr2",
+		nome: "Entrada 2 CTDR"
+	},
+	{
+		id: "ctdr3",
+		nome: "Entrada 3 CTDR"
+	},
+	{
+		id: "ctdr4",
+		nome: "Entrada 4 CTDR"
+	},
+	// {
+	// 	id: "",
+	// 	nome: ""
+	// },
+]
+
+
 function Maps() {
 	const [mapaAtual, setMapaAtual] = React.useState(require('assets/img/rotas/mapeamento-completo.png').default);
 
+	const [opcoesPonto2, setOpcoesPonto2] = useState([]);
 
 	const [primeiroPonto, setPrimeiroPonto] = React.useState("");
 
 	const handleChange1 = (event) => {
-		setPrimeiroPonto(event.target.value);
+		var value = event.target.value;
+		setPrimeiroPonto(value);
+		setSegundoPonto("");
+		setOpcoesPonto2(pontos.filter(obj => obj.id !== value));
 	};
 
 	const [segundoPonto, setSegundoPonto] = React.useState("");
 
 	const handleChange2 = (event) => {
-		setSegundoPonto(event.target.value);
+		var value = event.target.value;
+		setSegundoPonto(value);
 	};
 
 	const [possuiRota, setPossuiRota] = React.useState(false);
@@ -52,7 +101,7 @@ function Maps() {
 
 	useEffect(() => {
 		handleRotas();
-	}, [primeiroPonto, segundoPonto])
+	}, [segundoPonto])
 	
 
 	return (
@@ -72,9 +121,9 @@ function Maps() {
 								label="Ponto 1"
 								onChange={handleChange1}
 							>
-								<MenuItem value={"portao1"}>Portão 1</MenuItem>
-								<MenuItem value={"ci2"}>Térreo CI</MenuItem>
-								<MenuItem value={"ci1"}>Entrada CI</MenuItem>
+								{pontos.map(opcao => {
+									return <MenuItem value={opcao.id}>{opcao.nome}</MenuItem>
+								})}
 							</Select>
 						</FormControl>
 					</Box>
@@ -91,9 +140,9 @@ function Maps() {
 								label="Ponto 2"
 								onChange={handleChange2}
 							>
-								<MenuItem value={"portao2"}>Portão 2</MenuItem>
-								<MenuItem value={20}>Térreo CI</MenuItem>
-								<MenuItem value={30}>Thirty</MenuItem>
+								{opcoesPonto2.map(opcao => {
+									return <MenuItem value={opcao.id}>{opcao.nome}</MenuItem>
+								})}
 							</Select>
 						</FormControl>
 					</Box>
